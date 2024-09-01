@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+
+    <div class="row">
+      <div
+        class="login col-md-6 p-4 d-flex align-items-center justify-content-center"
+      >
+        <div class="card bg-white p-4 w-100 shadow-lg">
+          <h2 class="text-center text-black mb-4">Ziara Hotels</h2>
+          <p class="text-center text-muted mb-4">Login to the system</p>
+
+          <form
+            action="/login"
+            method="post"
+            [formGroup]="loginForm"
+            (ngSubmit)="onLogin()"
+          >
+            <div class="mb-3">
+              <label class="form-label text-black">Email address </label>
+              <input
+                id="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Your email"
+                autocomplete="current-password"
+              />
+              <div
+                *ngIf="
+                  loginForm.get('email')?.invalid &&
+                  loginForm.get('email')?.touched
+                "
+              >
+                <span *ngIf="loginForm.controls['email'].errors?.['required']"
+                  >This field is required
+                </span>
+                <span *ngIf="loginForm.controls['email'].errors?.['minlength']"
+                  >Mininum 4 characters needed</span
+                >
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-black">Password</label>
+              <input
+                id="password"
+                class="form-control"
+                type="password"
+                formControlName="password"
+                placeholder="Your password"
+                autocomplete="current-password"
+              />
+
+              <div
+                *ngIf="
+                  loginForm.get('password')?.invalid &&
+                  loginForm.get('password')?.touched
+                "
+              >
+                <span
+                  *ngIf="loginForm.controls['password'].errors?.['required']"
+                  >This is required
+                </span>
+                <span
+                  *ngIf="loginForm.controls['password'].errors?.['minlength']"
+                  >Minimum 6 characters needed</span
+                >
+              </div>
+            </div>
+            <button type="submit" class="btn btn-dark">Login</button>
+            <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+            <a class="nav-link text-primary" [routerLink]="['/register']">
+              Don't have an account? Sign up</a
+            >
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 p-4">
+          <ng-lottie [options]="LoginOptions" height="800px" width="500px">
+          </ng-lottie>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

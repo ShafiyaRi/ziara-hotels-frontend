@@ -1,0 +1,119 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="aboutus-container" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <h2>About Ziara Hotels</h2>
+    <p>Welcome to Ziara Hotels, where luxury meets comfort. Our mission is to provide an unparalleled experience for our
+      guests through exceptional service and premium amenities. Nestled in the heart of breathtaking landscapes, Ziara
+      Hotels offers a perfect blend of modern elegance and timeless charm.</p>
+  </div>
+
+  <div class="row align-items-md-stretch"
+    style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <div class="col-md-6 w-50">
+      <div class="h-60 p-5 text-black bg-transparent">
+        <h2>History of Ziara Hotels</h2>
+        <p>
+          Established in 1975, Ziara Hotels has grown from a single boutique hotel to a renowned chain of luxury
+          accommodations. Our founder, Ms.Shafiya, envisioned creating a haven for travelers seeking a unique blend of
+          relaxation and sophistication. Over the years, we have stayed true to this vision, continuously evolving to
+          meet
+          the needs of our discerning guests. </p>
+        <button class="btn Swap the background-color border rounded-3" type="button">
+          View more
+        </button>
+      </div>
+    </div>
+    <div class="" style="width: 30rem;">
+      <img src="assets/hotel10.jpg" class="card-img-top shadow-lg border rounded-3" alt="...">
+    </div>
+  </div>
+
+
+  <div class="row align-items-md-stretch"
+    style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <div class="" style="width: 30rem;">
+      <img src="assets/team1.jpg" class="card-img-top shadow-lg border rounded-3" alt="...">
+    </div>
+    <div class="col-md-6 w-50">
+      <div class="h-60 p-5 text-black bg-transparent">
+        <h2>Meet our team</h2>
+        <p>
+          Our dedicated team of hospitality professionals is committed to making your stay at Ziara Hotels
+          unforgettable.
+          From the moment you arrive, you’ll be greeted with warm smiles and attentive service. Our staff is trained to
+          anticipate your every need and exceed your expectations.
+        </p>
+        <button class="btn Swap the background-color border rounded-3" type="button">
+          View more
+        </button>
+      </div>
+    </div>
+
+  </div><br>
+  <div class="container p-4 mt-5 shadow-lg"
+    style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you! Please fill out the form below and we'll get in touch with you shortly.</p>
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+      <form [formGroup]="contactForm" (ngSubmit)="onContact()">
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-black">Name </label>
+            <input type="text" class="form-control " formControlName="name" placeholder="Your name">
+            <div class="text-danger"
+              *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].touched || contactForm.controls['name'].dirty)">
+              <span *ngIf="contactForm.controls['name'].errors?.['required']">This is required </span>
+              <span *ngIf="contactForm.controls['name'].errors?.['minlength']">Minimum 4 characters needed</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-black">Email address</label>
+            <input type="email" class="form-control " formControlName="email" autocomplete="current-email"
+              placeholder="Your email address">
+            <div class="text-danger"
+              *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].touched || contactForm.controls['email'].dirty)">
+              <span *ngIf="contactForm.controls['email'].errors?.['required']">This is required </span>
+              <span *ngIf="contactForm.controls['email'].errors?.['email']">Email is invalid </span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" formControlName="phone" placeholder="Your phone number">
+            <div class="text-danger"
+              *ngIf="contactForm.controls['phone'].invalid && (contactForm.controls['phone'].touched || contactForm.controls['phone'].dirty)">
+              <span *ngIf="contactForm.controls['phone'].errors?.['required']">This is required </span>
+              <span *ngIf="contactForm.controls['phone'].errors?.['maxlength']">Maximum 10 characters </span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control " formControlName="subject" placeholder="Subject">
+            <div class="text-danger"
+              *ngIf="contactForm.controls['subject'].invalid && (contactForm.controls['subject'].touched || contactForm.controls['subject'].dirty)">
+              <span *ngIf="contactForm.controls['subject'].errors?.['required']">This is required </span>
+              <span *ngIf="contactForm.controls['subject'].errors?.['maxlength']">Maximum 20 characters needed</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" formControlName="message" rows="4"
+              placeholder="Enter your message"></textarea>
+            <div class="text-danger"
+              *ngIf="contactForm.controls['subject'].invalid && (contactForm.controls['subject'].touched || contactForm.controls['subject'].dirty)">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-dark">Contact Us</button>
+        </form>
+      </div>
+      <div class="col-md-6 ">
+        <img src="assets/calendar.svg" class="card-img-top" alt="...">
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<app-footer></app-footer>

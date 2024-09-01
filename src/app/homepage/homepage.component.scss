@@ -1,0 +1,36 @@
+h1 {
+  font-size: 130px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "'Old Standard TT', sans-serif";
+}
+.btn {
+  background-color: rgb(255, 244, 254);
+  font-family: "'Old Standard TT', sans-serif";
+  font-weight: bold;
+}
+h2 {
+  font-family: "'Old Standard TT', sans-serif";
+  font-weight: 400;
+  font-size: 70px;
+  margin: 0;
+}
+p {
+  font-family: "'Old Standard TT', sans-serif";
+}
+.item{
+  transition-property:transform ;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+
+}
+.item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+  font: 433 13px / 24px 'Montserrat';
+  transform:translateY(-10px);
+}
+
+.details{
+  color: black;
+  font-family: "'Old Standard TT', sans-serif";
+}

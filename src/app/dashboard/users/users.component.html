@@ -1,0 +1,54 @@
+<div class="col-sm-12">
+  
+  <div class="add col-sm-3 d-flex">
+    <button
+      type="button"
+      class="btn btn-success "
+      data-bs-dismiss="modal"
+      (click)="openCustomerAddModal()"
+    > Add customer
+    </button>
+  </div>
+</div>
+  
+  <h4>Registered customer details</h4>
+  <div *ngIf="customers.length > 0">
+    <table class="table custom-table bg-white">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Customer Id</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">gender</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers; let i = index">
+          <td>{{ customer.customer_id }}</td>
+          <td>{{ customer.first_name }}</td>
+          <td>{{ customer.last_name }}</td>
+          <td>{{ customer.gender }}</td>
+          <td>{{ customer.email }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-xsm"
+              (click)="openCustomerUpdateModal(customer)"
+            >
+            <i class="fa-solid fa-edit"></i>
+            </button>
+            <button
+              (click)="openCustomerDeleteModal(customer)"
+              type="button"
+              class="btn btn-xsm me-2"
+            >
+            <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

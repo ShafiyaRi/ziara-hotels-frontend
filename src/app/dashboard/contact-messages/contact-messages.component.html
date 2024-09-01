@@ -1,0 +1,59 @@
+
+
+<div class="col-sm-12">
+  <div class="add col-sm-3 d-flex">
+    <button
+      type="button"
+      class="btn btn-success"
+      data-bs-dismiss="modal"
+      (click)="openContactAddModal()"
+    >
+      Add Reports
+    </button>
+  </div>
+</div>
+
+
+<h3>Reports of customers</h3>
+<div *ngIf="contacts">
+    <table class="table custom-table bg-white">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Contact ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Message</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let contact of contacts;">
+          <td>{{contact.contact_id}}</td>
+          <td>{{contact.name}}</td>
+          <td>{{contact.email}}</td>
+          <td>{{contact.phone}}</td>
+          <td>{{contact.subject}}</td>
+          <td>{{contact.message}}</td>
+          <td>
+            <button
+              (click)="openConactUpdateModal(contact)"
+              type="button"
+              class="btn btn-xsm me-2"
+            >
+              <i class="fa-solid fa-edit"></i>
+            </button>
+            <button
+              (click)="openContactDeleteModal(contact)"
+              type="button"
+              class="btn btn-xsm me-2"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

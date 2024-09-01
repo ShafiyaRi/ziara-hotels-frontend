@@ -1,0 +1,104 @@
+<app-header></app-header>
+
+<div class="position-relative">
+  <img
+    src="/assets/hotel12.jpg"
+    class="img-fluid w-100 position-relative"
+    alt="Background Image"
+  />
+  <div class="row">
+    <div
+      class="card align-items-center col-md-4 p-4 shadow-lg"
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        background-color: white;
+        font-family: 'Roboto', sans-serif;
+      "
+    >
+      <form [formGroup]="bookingForm" (ngSubmit)="onBooking()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label text-black"
+            >Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            placeholder="Your name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label text-black"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            autocomplete="current-email"
+            placeholder="Your email address"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input
+            type="tel"
+            class="form-control"
+            formControlName="phone"
+            placeholder="Your phone number"
+          />
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="number_of_rooms" class="form-label"
+              >Number of rooms</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              formControlName="number_of_rooms"
+            />
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="number_of_guests" class="form-label"
+              >Number of guests</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              formControlName="number_of_guests"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="date" class="form-label">Arrival date</label>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="arrival_date"
+            />
+          </div>
+
+          <button type="submit" class="btn shadow-lg">Confirm booking</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<app-footer></app-footer>

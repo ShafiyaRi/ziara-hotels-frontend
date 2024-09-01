@@ -1,0 +1,69 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">customers</h4>
+    <button type="button" class="close btn-close pull-right" aria-label="Close" >
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="userForm" (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-black">First Name</label>
+            <input type="text" class="form-control " formControlName="first_name" placeholder="Your first name">
+            <div class="text-danger"
+                *ngIf="userForm.controls['first_name'].invalid && (userForm.controls['first_name'].touched || userForm.controls['first_name'].dirty)">
+                <span *ngIf="userForm.controls['first_name'].errors?.['required']">This is required </span>
+                <span *ngIf="userForm.controls['first_name'].errors?.['minlength']">Minimum 4 characters
+                    needed</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-black">Last Name</label>
+            <input type="text" class="form-control " formControlName="last_name" placeholder="Your last name">
+            <div class="text-danger"
+                *ngIf="userForm.controls['last_name'].invalid && (userForm.controls['last_name'].touched || userForm.controls['last_name'].dirty)">
+                <span *ngIf="userForm.controls['last_name'].errors?.['required']">This is required </span>
+                <span *ngIf="userForm.controls['last_name'].errors?.['minlength']">Minimum 4 characters
+                    needed</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-black"> Gender</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" formControlName="gender" value="Male" id="Male" />
+                <label class="form-check-label text-black" for="Male"> Male </label>
+            </div>
+            <div class="form-check ">
+                <input class="form-check-input" type="radio" formControlName="gender" value="Female" id="Female" />
+                <label class="form-check-label text-black" for="Female">Female</label>
+            </div>
+            <div class="text-danger"
+                *ngIf="userForm.controls['gender'].invalid && (userForm.controls['gender'].touched || userForm.controls['email'].dirty)">
+                <span *ngIf="userForm.controls['gender'].errors?.['required']">Choose the gender type </span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-black">Email address</label>
+            <input type="email" class="form-control " formControlName="email" autocomplete="current-email"
+                placeholder="Your email address">
+            <div class="text-danger"
+                *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].touched || userForm.controls['email'].dirty)">
+                <span *ngIf="userForm.controls['email'].errors?.['required']">This is required </span>
+                <span *ngIf="userForm.controls['email'].errors?.['email']">Email is invalid </span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label text-black">Password</label>
+            <input class="form-control" type="password" formControlName="password" autocomplete="current-password"
+                placeholder="Enter a valid password">
+            <div class="text-danger"
+                *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].touched || userForm.controls['password'].dirty)">
+                <span *ngIf="userForm.controls['password'].errors?.['required']">This is required </span>
+                <span *ngIf="userForm.controls['password'].errors?.['minlength']">Minimum 6 characters
+                    needed</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark" data-bs-dismiss="modal">Save</button>
+        <div class="button">
+        </div>
+    </form>
+</div>

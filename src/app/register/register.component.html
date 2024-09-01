@@ -1,0 +1,196 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="container" style="font-family: 'Roboto', sans-serif">
+    <div class="row">
+      <div
+        class="register col-md-6 d-none d-md-flex align-items-center justify-content-center"
+      >
+     
+        <div class="card text-light p-4">
+          <h2 class="text-center text-black">Ziara Hotels</h2>
+          <p class="text-center text-muted">Create new account</p>
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="exampleInputEmail1" class="form-label text-black"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="first_name"
+                  placeholder="Your first name"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    registerForm.controls['first_name'].invalid &&
+                    (registerForm.controls['first_name'].touched ||
+                      registerForm.controls['first_name'].dirty)
+                  "
+                >
+                  <span
+                    *ngIf="registerForm.controls['first_name'].errors?.['required']"
+                    >This is required
+                  </span>
+                  <span
+                    *ngIf="registerForm.controls['first_name'].errors?.['minlength']"
+                    >Minimum 4 characters needed</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label for="exampleInputEmail1" class="form-label text-black"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="last_name"
+                  placeholder="Your last name"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    registerForm.controls['last_name'].invalid &&
+                    (registerForm.controls['last_name'].touched ||
+                      registerForm.controls['last_name'].dirty)
+                  "
+                >
+                  <span
+                    *ngIf="registerForm.controls['last_name'].errors?.['required']"
+                    >This is required
+                  </span>
+                  <span
+                    *ngIf="registerForm.controls['last_name'].errors?.['minlength']"
+                    >Minimum 4 characters needed</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-black"> Gender</label>
+              <div class="form-check-group">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    formControlName="gender"
+                    value="Male"
+                    id="Male"
+                  />
+                  <label class="form-check-label text-black" for="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    formControlName="gender"
+                    value="Female"
+                    id="Female"
+                  />
+                  <label class="form-check-label text-black" for="Female"
+                    >Female</label
+                  >
+                </div>
+              </div>
+              <div
+                class="text-danger"
+                *ngIf="
+                  registerForm.controls['gender'].invalid &&
+                  (registerForm.controls['gender'].touched ||
+                    registerForm.controls['email'].dirty)
+                "
+              >
+                <span
+                  *ngIf="registerForm.controls['gender'].errors?.['required']"
+                  >Choose the gender type
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label text-black"
+                >Email address</label
+              >
+              <input
+                id="email"
+                type="email"
+                class="form-control"
+                formControlName="email"
+                autocomplete="current-email"
+                placeholder="Your email address"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  registerForm.controls['email'].invalid &&
+                  (registerForm.controls['email'].touched ||
+                    registerForm.controls['email'].dirty)
+                "
+              >
+                <span
+                  *ngIf="registerForm.controls['email'].errors?.['required']"
+                  >This is required
+                </span>
+                <span *ngIf="registerForm.controls['email'].errors?.['email']"
+                  >Email is invalid
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label text-black"
+                >Password</label
+              >
+              <input
+                id="password"
+                class="form-control"
+                type="password"
+                formControlName="password"
+                autocomplete="current-password"
+                placeholder="Enter a valid password"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  registerForm.controls['password'].invalid &&
+                  (registerForm.controls['password'].touched ||
+                    registerForm.controls['password'].dirty)
+                "
+              >
+                <span
+                  *ngIf="registerForm.controls['password'].errors?.['required']"
+                  >This is required
+                </span>
+                <span
+                  *ngIf="registerForm.controls['password'].errors?.['minlength']"
+                  >Minimum 6 characters needed</span
+                >
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Sign Up</button>
+
+            <div class="button">
+              <a class="nav-link text-primary" [routerLink]="['/login']">
+                Already have an account? Login</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 p-4">
+        <ng-lottie [options]="Options" height="800px" width="500px">
+        </ng-lottie>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

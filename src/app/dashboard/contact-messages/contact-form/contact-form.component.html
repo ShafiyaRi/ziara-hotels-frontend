@@ -1,0 +1,141 @@
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Mod1</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="contactForm" (ngSubmit)="onContact()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-black"
+              >Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              placeholder="Your name"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                contactForm.controls['name'].invalid &&
+                (contactForm.controls['name'].touched ||
+                  contactForm.controls['name'].dirty)
+              "
+            >
+              <span *ngIf="contactForm.controls['name'].errors?.['required']"
+                >This is required
+              </span>
+              <span *ngIf="contactForm.controls['name'].errors?.['minlength']"
+                >Minimum 4 characters needed</span
+              >
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-black"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              autocomplete="current-email"
+              placeholder="Your email address"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                contactForm.controls['email'].invalid &&
+                (contactForm.controls['email'].touched ||
+                  contactForm.controls['email'].dirty)
+              "
+            >
+              <span *ngIf="contactForm.controls['email'].errors?.['required']"
+                >This is required
+              </span>
+              <span *ngIf="contactForm.controls['email'].errors?.['email']"
+                >Email is invalid
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input
+              type="tel"
+              class="form-control"
+              formControlName="phone"
+              placeholder="Your phone number"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                contactForm.controls['phone'].invalid &&
+                (contactForm.controls['phone'].touched ||
+                  contactForm.controls['phone'].dirty)
+              "
+            >
+              <span *ngIf="contactForm.controls['phone'].errors?.['required']"
+                >This is required
+              </span>
+              <span *ngIf="contactForm.controls['phone'].errors?.['maxlength']"
+                >Maximum 10 characters
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="subject"
+              placeholder="Subject"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                contactForm.controls['subject'].invalid &&
+                (contactForm.controls['subject'].touched ||
+                  contactForm.controls['subject'].dirty)
+              "
+            >
+              <span *ngIf="contactForm.controls['subject'].errors?.['required']"
+                >This is required
+              </span>
+              <span
+                *ngIf="contactForm.controls['subject'].errors?.['maxlength']"
+                >Maximum 20 characters needed</span
+              >
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              class="form-control"
+              formControlName="message"
+              rows="4"
+              placeholder="Enter your message"
+            ></textarea>
+            <div
+              class="text-danger"
+              *ngIf="
+                contactForm.controls['subject'].invalid &&
+                (contactForm.controls['subject'].touched ||
+                  contactForm.controls['subject'].dirty)
+              "
+            ></div>
+          </div>
+          <button type="submit" class="btn btn-dark">Save</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <img src="assets/calendar.svg" class="card-img-top" alt="..." />
+      </div>
+   

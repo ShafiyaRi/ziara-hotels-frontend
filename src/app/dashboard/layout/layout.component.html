@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="header col-md-12">
+      <header class="header d-flex">
+        <div class="col-auto">
+          <i class="fa-solid fa-bars" (click)="toggleSidebar()"></i>
+        </div>
+
+        <div class="d-flex align-items-center" style="margin-left: 92%">
+          <div class="dropdown">
+            <button
+              class="btn"
+              type="button"
+              id="triggerId"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <div class="me-sm-2">
+                <img
+                  src="assets/man.jpg"
+                  alt="img"
+                  class="avatar avatar-sm avatar-rounded"
+                  style="height: 40px; border-radius: 50%"
+                  
+                />
+              </div>
+              <div class="d-xl-block d-none lh-1">
+                <span class="fw-medium lh-1">Mr. Stark</span>
+              </div>
+            </button>
+            <div class="dropdown-menu p-2" aria-labelledby="triggerId">
+              <h6>Name: Mr. Stark</h6>
+              <p>You may edit your profile as preferred</p>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <div class="row">
+    <div
+      class="sidebar d-flex col-md-2 bg-dark text-light flex-column align-items-center py-4"
+      [ngClass]="{ 'd-none': isSidebarCollapsed }"
+    >
+      <nav class="sidebar-nav text-center w-100">
+        <h4 class="mb-4">Ziara Hotels</h4>
+        <div class="sidebar-pic mb-3">
+          <img
+            src="/assets/man.jpg"
+            class="avatar avatar-rounded shadow-sm"
+            alt=""
+            style="border-radius: 50%; height: 100px; width: 100px;
+           "
+          />
+          <p>Mr.Stark</p>
+        </div>
+        <ul class="nav flex-column w-100">
+          <li class="nav-item">
+            <a href="/homepage" class="nav-link text-white d-flex align-items-center  py-2">
+              <i class="fa-solid fa-home me-2"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white d-flex align-items-center  py-2" [routerLink]="['/dashboard']">
+              <i class="fa-solid fa-book me-2"></i>
+              <span>Bookings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white d-flex align-items-center  py-2" [routerLink]="['/dashboard/users']">
+              <i class="fa-solid fa-user me-2"></i>
+              <span>Users</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white d-flex align-items-center  py-2" [routerLink]="['/dashboard/contact-messages']">
+              <i class="fa fa-commenting me-2"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white d-flex align-items-center  py-2" [routerLink]="['/dashboard/settings']">
+              <i class="fa fa-cog me-2"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white d-flex align-items-center -center py-2"
+              (click)="showLogoutMessage()"
+              style="cursor: pointer"
+            >
+              <i class="fa fa-sign-out me-2"></i>
+              <span>Log out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <div class="col-md-10" [ngClass]="{ 'col-md-12': isSidebarCollapsed }">
+      <div class="row">
+        <div class="card bg-light">
+          <div class="row p-4">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
